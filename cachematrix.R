@@ -31,11 +31,15 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
         inverser <- x$getinverse()
         if(!is.null(inverser)) {
+                ##If cached it is printed on screen
                 message("getting cached data.")
                 return(inverser)
         }
         data <- x$get()
+        ## Calculate the inverse matrix and store into inverser variable
         inverser <- solve(data)
+        
+        ##store into setinverte matrix inverted calculated
         x$setinverse(inverser)
         inverser
 }
